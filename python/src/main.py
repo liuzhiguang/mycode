@@ -6,14 +6,13 @@
 # @Version : $Id$
 
 from sys import path
-path.append("E:\mycode\python\\notefile")
+path.append("..\\notefile")
 
 import _property_d
 from _property_d import Screen
 
-import 元类
-from 元类 import *
-
+import Metaclass
+from Metaclass import *
 
 
 def main():
@@ -28,7 +27,7 @@ def main():
 
     '''测试元类'''
     print('=========测试元类=========')
-    h=Hello()
+    h = Hello()
     h.hello()
     print(type(Hello))
     print(type(h))
