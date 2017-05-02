@@ -12,6 +12,12 @@ from Mydict import Dict
 class testdict(unittest.TestCase):
     """docstring for testdict"""
 
+    # def setUp(self):
+    #     print('setup')
+
+    # def tearDown(self):
+    #     print('teardown')
+
     def test_init(self):
         d = Dict(a=1, b='test')
         self.assertEqual(d.a, 1)
