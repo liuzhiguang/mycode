@@ -1,0 +1,26 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+# @Date    : 2017-05-03 17:43:53
+# @Author  : lzg (wb-lzg228465@autonavi.com)
+# @Link    : ${link}
+# @Version : $Id$
+
+import time
+import threading
+
+
+def loop():
+    print('thread %s is running...' % threading.current_thread().name)
+    n = 0
+    while n < 5:
+        n = n + 1
+        print('current_thread %s >>>%s' % (threading.current_thread().name, n))
+        time.sleep(1)
+    print('thread %s end' % threading.current_thread().name)
+print('thread %s is running...'%threading.current_thread().name)
+t = threading.Thread(target = loop, name = 'LoopThread')
+t.start()
+t.join()
+print('thread %s end.'%threading.current_thread().name)
+# if __name__ == '__main__':
+#     loop()
