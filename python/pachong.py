@@ -13,10 +13,10 @@ page = 1
 # headers = {'User-Agent': user_agent}
 # try:
 # request = urllib.request(url, headers=headers)
-url='http://blog.163.com/20031004@126/blog/static/465272062012111931546321/'
+url='https://www.python.org/events/python-events/'
 response = urllib.request.urlopen(url)
 a=response.read()
-print(a.decode('utf8'))
+print(a)
 # except urllib2.URLError, e:
 #     if hasattr(e, "code")
 #         print e.code
