@@ -8,7 +8,8 @@
 
 # str1 = 139.012497,35.551674
 # str1=500444.9892 , 127986.02639999999
-str1 = '+141:21:01.96 +043:03:43.45'
+str1=503182.021 ,  128227.870
+# str1 = '503182021 +043:03:43.45'
 
 i = 0
 if isinstance(str1, str):
@@ -24,7 +25,7 @@ if i == 1:
     lat_1 = lat / 3600
     lon_1 = lon / 3600
     s1 = str(lon_1) + "," + str(lat_1) + '\n'
-    s2 = '\r\n' + str(lon_1) + '\r' + str(lat_1)
+    s2 = '\r\n' + str(lon_1) + '\r\n' + str(lat_1)
     print(s1)
     print(s2.strip())
 if i == 0:
