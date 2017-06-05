@@ -17,26 +17,53 @@ def process_buffer(buf):
     print(attrib)
     return attrib
 
+def process_buffer_NAME(buf):
+    tree = ET.fromstring(buf)
+    tag = tree.tag
+    text = tree.text.strip()
+    return tag, text
 
+str1 = ''
+temp = ''
+def complie(buf):
+    context = process_buffer_NAME(buf)
+    str1 += temp +'<=' + 'namedObjectId<' + text + '(' + context[tag] + '>' +'\n\r'
+    temp = text
+    
 inputbuffer = ''
-with open('D:\\big_box\\data\\PDB2.2\\NDS\\CN\\cw19\\Beijing.xml', 'r', encoding='utf8') as inputfile:
+# with open('D:\\big_box\\data\\PDB2.2\\NDS\\CN\\cw19\\Beijing.xml', 'r', encoding='utf8') as inputfile:
+    # append = False
+    # for line in inputfile:
+    #     if '<CITY ' in line and '>' in line:
+    #         inputbuffer = line.replace('">', '"/>')
+    #         append = False
+    #         process_buffer(inputbuffer)
+    #         inputbuffer = None
+    #         # del inputbuffer
+    #     elif '<POI' in line and '">' in line:
+    #         inputbuffer = line
+    #         append = False
+    #         inputbuffer = line.replace('">', '"/>')
+    #         process_buffer(inputbuffer)
+    #         inputbuffer = None
+    #         # del inputbuffer
+    #     elif append:
+    #         inputbuffer += line
+
+with open('D:\\big_box\\data\\PDB2.2.1\\CN\\CFG\\Configuration.xml','r',encoding = 'utf8') as inputfile1:
     append = False
-    for line in inputfile:
-        if '<CITY ' in line and '>' in line:
-            inputbuffer = line.replace('">', '"/>')
-            append = False
-            process_buffer(inputbuffer)
-            inputbuffer = None
-            # del inputbuffer
-        elif '<POI' in line and '">' in line:
+    for line in inputfile1:
+        if '<NameMid>' in line:
+            pass
+        if append:
             inputbuffer = line
-            append = False
-            inputbuffer = line.replace('">', '"/>')
             process_buffer(inputbuffer)
             inputbuffer = None
-            # del inputbuffer
-        elif append:
-            inputbuffer += line
+        if '<StartNamedObjectId>' in line:
+            append = True
+        
+        if '</StartNamedObjectId>' in line:
+            append = False
 
     #root = ET.fromstring()
     # root = tree.getroot()
@@ -46,3 +73,4 @@ with open('D:\\big_box\\data\\PDB2.2\\NDS\\CN\\cw19\\Beijing.xml', 'r', encoding
 # state = tree.find("STATE").text
 # print(state)
 # {'WGS_LATITUDE': '39.868491', 'NAME': '神州\xad租车\xad(\xad北京\xad南站\xad店\xad)', 'POI_TYPE': '4736', 'NATIONAL_IMPORTANCE': '0', 'WGS_LONGITUDE': '116.382395', 'LANG': '40', 'POI_ID': '172700', 'STREET': '地铁4号线北京南站北广场东侧200米路北'}
+
